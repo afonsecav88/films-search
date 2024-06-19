@@ -1,4 +1,9 @@
-export { Container } from './Container';
 export { Button } from './Button';
+export { CardFilm } from '../CardFilms';
+export { Container } from './Container';
+export { HeaderFilm } from './HeaderFilm';
+export { Image } from './Image';
 export { Input } from './Input';
+export { LiFilms } from './LiFilms';
+export { TextFilm } from './TextFilm';
 export { UlFilms } from './UlFilms';

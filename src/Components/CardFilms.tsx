@@ -1,10 +1,18 @@
 import { Search } from '../Interfaces/Films.Interface';
-import { LiFilms } from './StyledComponent/LiFilms';
+import { Image, HeaderFilm, TextFilm, LiFilms } from './StyledComponent';
 
 interface CardFilmProp {
   film: Search;
 }
 
 export const CardFilm = ({ film }: CardFilmProp) => {
-  return <LiFilms>{film.Title}</LiFilms>;
+  const { Title, Poster, Year, Type } = film;
+  return (
+    <LiFilms>
+      <HeaderFilm>Título: {Title}</HeaderFilm>
+      <TextFilm>Año: {Year}</TextFilm>
+      <TextFilm>Tipo: {Type}</TextFilm>
+      <Image src={Poster} alt={Title} />
+    </LiFilms>
+  );
 };
