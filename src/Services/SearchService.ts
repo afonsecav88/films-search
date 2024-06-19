@@ -7,7 +7,7 @@ export const SearchService = async () => {
     const resp = await fetch(`${URL_API}/?apikey=${API_Key}&s=batman`);
     const data = await resp.json();
     const { Search } = data;
-    console.log(Search);
+    return Search;
   } catch (error) {
     console.log(error);
   }
