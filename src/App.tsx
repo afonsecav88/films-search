@@ -1,9 +1,10 @@
-import { Button, Container } from './Components/StyledComponent';
+import { Button, Container, Input } from './Components/StyledComponent';
 
 function App() {
   return (
     <Container>
-      <Button>Hola</Button>
+      <Input />
+      <Button>Buscar</Button>
     </Container>
   );
 }
