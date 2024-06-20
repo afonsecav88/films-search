@@ -1,5 +1,5 @@
-import { ChangeEvent, KeyboardEvent, useState } from 'react';
-import { Input, Button } from './StyledComponent';
+import { ChangeEvent, FormEvent, KeyboardEvent, useState } from 'react';
+import { Input, Button, Form } from './StyledComponent';
 
 export const SearchFilm = () => {
   const [termSerch, setTermSearch] = useState<string>('');
@@ -13,20 +13,23 @@ export const SearchFilm = () => {
     }
   };
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = (e: FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     console.log('Search Films');
   };
 
   return (
-    <>
+    <Form method="post">
       <Input
         placeholder="Batman , Spiderman, ..."
         value={termSerch}
-        name={termSerch}
+        name="searchTerm"
         onChange={handleOnChange}
         onKeyUp={handleKeyUp}
       />
-      <Button onSubmit={()=>handleOnSubmit()}>Buscar</Button>
-    </>
+      <Button type="submit" onSubmit={handleOnSubmit}>
+        Buscar
+      </Button>
+    </Form>
   );
 };
