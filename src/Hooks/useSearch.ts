@@ -3,16 +3,16 @@ import { Search } from '../Interfaces/Films.Interface';
 import { SearchService } from '../Services/SearchService';
 
 export const useSearch = () => {
-  const [searchTerm] = useState<string>('spiderman');
+  const term = 'spiderman';
+  // const [searchTerm] = useState<string>(term);
   const [films, setFilms] = useState<Search[]>([]);
 
   useEffect(() => {
-    const listFilms = SearchService(searchTerm);
+    const listFilms = SearchService(term);
     listFilms.then((films) => setFilms(films));
-  }, [searchTerm]);
+  }, [term]);
 
   return {
-    searchTerm,
     films,
   };
 };
