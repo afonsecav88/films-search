@@ -3,7 +3,7 @@ import { Search } from '../Interfaces/Films.Interface';
 import { SearchService } from '../Services/SearchService';
 
 export const useSearch = () => {
-  const [searchTerm] = useState<string>('batman');
+  const [searchTerm] = useState<string>('spiderman');
   const [films, setFilms] = useState<Search[]>([]);
 
   useEffect(() => {
