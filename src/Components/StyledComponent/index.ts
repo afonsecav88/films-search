@@ -1,9 +1,11 @@
 export { Button } from './Button';
-export { CardFilm } from '../CardFilms';
+export { CardFilm } from './CardFilm';
 export { Container } from './Container';
+export { FooterCard } from './FooterCard';
 export { HeaderFilm } from './HeaderFilm';
 export { Image } from './Image';
 export { Input } from './Input';
 export { LiFilms } from './LiFilms';
-export { TextFilm } from './TextFilm';
+export { FooterCardItem } from './FooterCardItem';
+export { FooterCardItemTitle } from './FooterCardItemTitle';
 export { UlFilms } from './UlFilms';

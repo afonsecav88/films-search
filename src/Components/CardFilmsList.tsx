@@ -1,5 +1,5 @@
 import { useSearch } from '../Hooks/useSearch';
-import { CardFilm } from './CardFilms';
+import { CardFilmsItem } from './CardFilmsItem';
 import { UlFilms } from './StyledComponent';
 
 export const CardFilmList = () => {
@@ -7,7 +7,7 @@ export const CardFilmList = () => {
   return (
     <UlFilms>
       {films.map((film) => (
-        <CardFilm key={film.imdbID} film={film} />
+        <CardFilmsItem key={film.imdbID} film={film} />
       ))}
     </UlFilms>
   );
