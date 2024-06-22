@@ -1,18 +1,35 @@
-import { useEffect, useState } from 'react';
+import { FormEvent, KeyboardEvent, Dispatch, ChangeEvent } from 'react';
 import { Search } from '../Interfaces/Films.Interface';
 import { SearchService } from '../Services/SearchService';
+import React from 'react';
 
-export const useSearch = () => {
-  const term = 'spiderman';
-  // const [searchTerm] = useState<string>(term);
-  const [films, setFilms] = useState<Search[]>([]);
+export const useSearch = (
+  termSearch: string,
+  setTermSearch: Dispatch<React.SetStateAction<string>>,
+  setFilms: Dispatch<React.SetStateAction<Search[]>>
+) => {
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTermSearch(e.target.value);
+  };
 
-  useEffect(() => {
-    const listFilms = SearchService(term);
+  const findFilmByTerm = () => {
+    if (termSearch.length <= 2) return;
+    const listFilms = SearchService(termSearch);
     listFilms.then((films) => setFilms(films));
-  }, [term]);
+  };
 
+  const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key !== 'Enter') return;
+    findFilmByTerm();
+  };
+
+  const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    findFilmByTerm();
+  };
   return {
-    films,
+    handleKeyUp,
+    handleOnSubmit,
+    handleOnChange,
   };
 };

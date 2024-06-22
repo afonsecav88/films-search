@@ -1,26 +1,31 @@
-import { ChangeEvent, FormEvent, KeyboardEvent, useState } from 'react';
 import { Input, Button, Form } from './StyledComponent';
+import { useSearch } from '../Hooks/useSearch';
+import { Dispatch } from 'react';
+import { Search } from '../Models/Films.Interface';
 
-export const SearchFilm = () => {
-  const [termSerch, setTermSearch] = useState<string>('');
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTermSearch(e.target.value);
-  };
+interface SearchFilmProps {
+  termSearch: string;
+  setTermSearch: Dispatch<React.SetStateAction<string>>;
+  films: Search[];
+  setFilms: Dispatch<React.SetStateAction<Search[]>>;
+}
 
-  const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key !== 'Enter') return;
-  };
-
-  const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Search Films');
-  };
+export const SearchFilm = ({
+  termSearch,
+  setTermSearch,
+  setFilms,
+}: SearchFilmProps) => {
+  const { handleKeyUp, handleOnChange, handleOnSubmit } = useSearch(
+    termSearch,
+    setTermSearch,
+    setFilms
+  );
 
   return (
     <Form onSubmit={handleOnSubmit}>
       <Input
         placeholder="Batman , Spiderman, ..."
-        value={termSerch}
+        value={termSearch}
         name="searchTerm"
         onChange={handleOnChange}
         onKeyUp={handleKeyUp}

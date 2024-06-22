@@ -1,12 +1,15 @@
-import { useSearch } from '../Hooks/useSearch';
+import { Search } from '../Models/Films.Interface';
 import { CardFilmsItem } from './CardFilmsItem';
 import { UlFilms } from './StyledComponent';
 
-export const CardFilmList = () => {
-  const { films } = useSearch();
+interface CardFilmListProps {
+  films: Search[];
+}
+
+export const CardFilmList = ({ films }: CardFilmListProps) => {
   return (
     <UlFilms>
-      {films.map((film) => (
+      {films.map((film: Search) => (
         <CardFilmsItem key={film.imdbID} film={film} />
       ))}
     </UlFilms>

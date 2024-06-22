@@ -9,4 +9,5 @@ export { HeaderFilm } from './HeaderFilm';
 export { Image } from './Image';
 export { Input } from './Input';
 export { LiFilms } from './LiFilms';
+export { Main } from './Main';
 export { UlFilms } from './UlFilms';
