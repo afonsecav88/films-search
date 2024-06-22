@@ -1,7 +1,7 @@
-import { FormEvent, KeyboardEvent, Dispatch, ChangeEvent } from 'react';
-import { Search } from '../Interfaces/Films.Interface';
-import { SearchService } from '../Services/SearchService';
 import React from 'react';
+import { FormEvent, KeyboardEvent, Dispatch, ChangeEvent } from 'react';
+import { Search } from '../Models/Films.Interface';
+import { SearchService } from '../Services/SearchService';
 
 export const useSearch = (
   termSearch: string,

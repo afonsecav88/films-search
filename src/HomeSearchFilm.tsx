@@ -6,16 +6,14 @@ import { NotFilmsSearch } from './Components/NotFilmsSearch';
 import { Search } from './Models/Films.Interface';
 
 function HomeSearchFilm() {
-  const [termSerch, setTermSearch] = useState<string>('');
+  const [termSearch, setTermSearch] = useState<string>('');
   const [films, setFilms] = useState<Search[]>([]);
-  console.log(films.length == 0);
 
-  console.log(films);
   return (
     <>
       <Container>
         <SearchFilm
-          termSearch={termSerch}
+          termSearch={termSearch}
           setTermSearch={setTermSearch}
           films={films}
           setFilms={setFilms}

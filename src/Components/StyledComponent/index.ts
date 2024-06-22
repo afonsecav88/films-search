@@ -11,3 +11,4 @@ export { Input } from './Input';
 export { LiFilms } from './LiFilms';
 export { Main } from './Main';
 export { UlFilms } from './UlFilms';
+export { ErrorContainer } from './ErrorContainer';

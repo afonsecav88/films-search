@@ -1,4 +1,4 @@
-import { Search } from '../Interfaces/Films.Interface';
+import { Search } from '../Models/Films.Interface';
 import notImage from '../assets/no-image.svg';
 import {
   Image,
