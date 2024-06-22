@@ -8,18 +8,16 @@ export const SearchFilm = () => {
   };
 
   const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      console.log(`${e.key}`);
-    }
+    if (e.key !== 'Enter') return;
   };
 
-  const handleOnSubmit = (e: FormEvent<HTMLButtonElement>) => {
+  const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Search Films');
   };
 
   return (
-    <Form method="post">
+    <Form onSubmit={handleOnSubmit}>
       <Input
         placeholder="Batman , Spiderman, ..."
         value={termSerch}
@@ -27,9 +25,7 @@ export const SearchFilm = () => {
         onChange={handleOnChange}
         onKeyUp={handleKeyUp}
       />
-      <Button type="submit" onSubmit={handleOnSubmit}>
-        Buscar
-      </Button>
+      <Button type="submit">Buscar</Button>
     </Form>
   );
 };
