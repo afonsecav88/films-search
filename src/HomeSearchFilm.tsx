@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CardFilmList } from './Components/CardFilmsList';
 import { SearchFilm } from './Components/SearchFilm';
-import { Container, Main } from './Components/StyledComponent';
+import { Main } from './Components/StyledComponent';
 import { NotFilmsSearch } from './Components/NotFilmsSearch';
 import { Search } from './Models/Films.Interface';
 
@@ -11,14 +11,12 @@ function HomeSearchFilm() {
 
   return (
     <>
-      <Container>
-        <SearchFilm
-          termSearch={termSearch}
-          setTermSearch={setTermSearch}
-          films={films}
-          setFilms={setFilms}
-        />
-      </Container>
+      <SearchFilm
+        termSearch={termSearch}
+        setTermSearch={setTermSearch}
+        films={films}
+        setFilms={setFilms}
+      />
       <Main>
         {films.length !== 0 ? (
           <CardFilmList films={films} />
