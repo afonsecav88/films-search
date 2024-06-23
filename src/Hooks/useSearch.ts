@@ -2,6 +2,7 @@ import React from 'react';
 import { FormEvent, KeyboardEvent, Dispatch, ChangeEvent } from 'react';
 import { Search } from '../Models/Films.Interface';
 import { SearchService } from '../Services/SearchService';
+import debounce from 'just-debounce-it';
 
 export const useSearch = (
   termSearch: string,

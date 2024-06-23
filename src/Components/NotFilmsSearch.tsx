@@ -1,3 +1,3 @@
 export const NotFilmsSearch = () => {
-  return <div>No se han buscado peliculas !!</div>;
+  return <div>Aca se mostraran tus peliculas !!</div>;
 };
