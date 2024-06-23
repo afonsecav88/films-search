@@ -9,8 +9,8 @@ interface SearchFilmProps {
   setTermSearch: Dispatch<React.SetStateAction<string>>;
   films: Search[];
   setFilms: Dispatch<React.SetStateAction<Search[]>>;
-  doingSearch: boolean;
   setDoingSearch: Dispatch<React.SetStateAction<boolean>>;
+  setDoSearch: Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const SearchFilm = ({
@@ -18,13 +18,15 @@ export const SearchFilm = ({
   setTermSearch,
   setFilms,
   setDoingSearch,
+  setDoSearch,
 }: SearchFilmProps) => {
   const { error } = useSearchErrors(termSearch);
   const { handleOnSubmit, handleOnChange, handleKeyUp } = useSearch(
     termSearch,
     setTermSearch,
     setFilms,
-    setDoingSearch
+    setDoingSearch,
+    setDoSearch
   );
 
   return (

@@ -11,7 +11,11 @@ function HomeSearchFilm() {
   const [termSearch, setTermSearch] = useState<string>('');
   const [films, setFilms] = useState<Search[]>([]);
   const [doingSearch, setDoingSearch] = useState<boolean>(false);
+  const [doSearch, setDoSearch] = useState<boolean>(false);
+
+  console.log('doSearch', doSearch);
   console.log('doingSearch', doingSearch);
+  console.log(films);
 
   const isSearchOrFoundedFilm = () => {
     if (doingSearch == false && films.length == 0 && termSearch.length == 0) {
@@ -23,7 +27,7 @@ function HomeSearchFilm() {
     if (films.length !== 0) {
       return <CardFilmList films={films} />;
     }
-    if (termSearch.length > 3 && films.length == 0) {
+    if (doSearch && films.length == 0) {
       return (
         <NotFilmsFounded termSearch={termSearch} doingSearch={doingSearch} />
       );
@@ -37,8 +41,8 @@ function HomeSearchFilm() {
         setTermSearch={setTermSearch}
         films={films}
         setFilms={setFilms}
-        doingSearch={doingSearch}
         setDoingSearch={setDoingSearch}
+        setDoSearch={setDoSearch}
       />
 
       <Main>{isSearchOrFoundedFilm()}</Main>

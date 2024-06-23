@@ -8,7 +8,8 @@ export const useSearch = (
   termSearch: string,
   setTermSearch: Dispatch<React.SetStateAction<string>>,
   setFilms: Dispatch<React.SetStateAction<Search[]>>,
-  setDoingSearch: Dispatch<React.SetStateAction<boolean>>
+  setDoingSearch: Dispatch<React.SetStateAction<boolean>>,
+  setDoSearch: Dispatch<React.SetStateAction<boolean>>
 ) => {
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTermSearch(e.target.value);
@@ -19,7 +20,10 @@ export const useSearch = (
     const listFilms = SearchService(termSearch);
     listFilms
       .then((films) => setFilms(films))
-      .finally(() => setDoingSearch(false));
+      .finally(() => {
+        setDoingSearch(false);
+        setDoSearch(true);
+      });
   };
 
   const debounceFindFilmByTerm = debounce(() => {
