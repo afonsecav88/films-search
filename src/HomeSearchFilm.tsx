@@ -28,9 +28,7 @@ function HomeSearchFilm() {
       return <CardFilmList films={films} />;
     }
     if (doSearch && films.length == 0) {
-      return (
-        <NotFilmsFounded termSearch={termSearch} doingSearch={doingSearch} />
-      );
+      return <NotFilmsFounded termSearch={termSearch} />;
     }
   };
 
