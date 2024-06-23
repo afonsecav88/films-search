@@ -1,5 +1,4 @@
 interface NotFilmsFoundedProps {
-  doingSearch: boolean;
   termSearch: string;
 }
 

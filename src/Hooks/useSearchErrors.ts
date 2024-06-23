@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 
 export const useSearchErrors = (termSearch: string) => {
-  const [error, setError] = useState('');
-  const isFirstSearch = useRef(true);
+  const [error, setError] = useState<string>('');
+  const isFirstSearch = useRef<boolean>(true);
 
   useEffect(() => {
     if (isFirstSearch.current) {
@@ -23,6 +23,14 @@ export const useSearchErrors = (termSearch: string) => {
       setError('La búsqueda debe tener al menos 3 caracteres');
       return;
     }
+
+    // console.log('prevSearchValue', prevSearchValue.current);
+    // console.log('termSearch', termSearch);
+    // if (termSearch === prevSearchValue.current) {
+    //   setError('Ya buscaste por ese nombre de pélicula');
+    //   return;
+    // }
+
     setError('');
   }, [termSearch]);
 

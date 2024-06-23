@@ -6,22 +6,23 @@ import { NotFilmsSearch } from './Components/NotFilmsSearch';
 import { Search } from './Models/Films.Interface';
 import { NotFilmsFounded } from './Components/NotFilmsFounded';
 import { LoadingFilms } from './Components/LoadingFilms';
+import { useSearchErrors } from './Hooks/useSearchErrors';
+import { useSameFilmSearch } from './Hooks/useSameFilmSearch';
 
 function HomeSearchFilm() {
   const [termSearch, setTermSearch] = useState<string>('');
   const [films, setFilms] = useState<Search[]>([]);
   const [doingSearch, setDoingSearch] = useState<boolean>(false);
   const [doSearch, setDoSearch] = useState<boolean>(false);
+  const { error } = useSearchErrors(termSearch);
+  const { prevTermSearch } = useSameFilmSearch(termSearch);
 
-  console.log('doSearch', doSearch);
-  console.log('doingSearch', doingSearch);
-  console.log(films);
-
-  const isSearchOrFoundedFilm = () => {
-    if (doingSearch == false && films.length == 0 && termSearch.length == 0) {
+  const isSearchOrFoundedFilms = () => {
+    if (doSearch == false && doingSearch == false) {
       return <NotFilmsSearch />;
     }
-    if (doingSearch == true) {
+    if (error.length !== 0) return;
+    if (doingSearch == true && termSearch.length >= 3) {
       return <LoadingFilms />;
     }
     if (films.length !== 0) {
@@ -43,7 +44,7 @@ function HomeSearchFilm() {
         setDoSearch={setDoSearch}
       />
 
-      <Main>{isSearchOrFoundedFilm()}</Main>
+      <Main>{isSearchOrFoundedFilms()}</Main>
     </>
   );
 }
