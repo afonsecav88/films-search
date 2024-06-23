@@ -9,25 +9,29 @@ interface SearchFilmProps {
   setTermSearch: Dispatch<React.SetStateAction<string>>;
   films: Search[];
   setFilms: Dispatch<React.SetStateAction<Search[]>>;
+  doingSearch: boolean;
+  setDoingSearch: Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const SearchFilm = ({
   termSearch,
   setTermSearch,
   setFilms,
+  setDoingSearch,
 }: SearchFilmProps) => {
   const { error } = useSearchErrors(termSearch);
   const { handleOnSubmit, handleOnChange, handleKeyUp } = useSearch(
     termSearch,
     setTermSearch,
-    setFilms
+    setFilms,
+    setDoingSearch
   );
 
   return (
     <>
       <Form onSubmit={handleOnSubmit}>
         <Input
-          placeholder="Batman , Spiderman, ..."
+          placeholder="Batman , Spiderman ..."
           value={termSearch}
           name="searchTerm"
           onChange={handleOnChange}

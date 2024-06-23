@@ -10,7 +10,7 @@ export const useSearchErrors = (termSearch: string) => {
       return;
     }
     if (termSearch == '') {
-      setError('No se puede buscar una película vacía');
+      setError('Debes introducir el nombre de la pélicula !');
       return;
     }
 
