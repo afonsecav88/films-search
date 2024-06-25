@@ -8,6 +8,7 @@ import { NotFilmsFounded } from './Components/NotFilmsFounded';
 import { LoadingFilms } from './Components/LoadingFilms';
 import { useSearchErrors } from './Hooks/useSearchErrors';
 import { useSameFilmSearch } from './Hooks/useSameFilmSearch';
+import { ErrorSearch } from './Components/ErrorSearch';
 
 function HomeSearchFilm() {
   const [termSearch, setTermSearch] = useState<string>('');
@@ -43,6 +44,7 @@ function HomeSearchFilm() {
         setDoingSearch={setDoingSearch}
         setDoSearch={setDoSearch}
       />
+      <ErrorSearch termSearch={termSearch} />
 
       <Main>{isSearchOrFoundedFilms()}</Main>
     </>

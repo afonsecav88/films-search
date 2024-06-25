@@ -20,7 +20,6 @@ export const SearchFilm = ({
   setDoingSearch,
   setDoSearch,
 }: SearchFilmProps) => {
-  const { error } = useSearchErrors(termSearch);
   const { handleOnSubmit, handleOnChange, handleKeyUp } = useSearch(
     termSearch,
     setTermSearch,
@@ -41,7 +40,6 @@ export const SearchFilm = ({
         />
         <Button type="submit">Buscar</Button>
       </Form>
-      <ErrorContainer>{error}</ErrorContainer>
     </>
   );
 };
