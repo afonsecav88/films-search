@@ -1,4 +1,4 @@
-import { Input, Button, Form, ErrorContainer } from './StyledComponent';
+import { Input, Button, Form } from './StyledComponent';
 import { useSearch } from '../Hooks/useSearch';
 import { Dispatch } from 'react';
 import { Search } from '../Models/Films.Interface';
@@ -27,7 +27,9 @@ export const SearchFilm = ({
     setDoingSearch,
     setDoSearch
   );
+  const { error } = useSearchErrors(termSearch);
 
+  console.log('error', error.length == 0);
   return (
     <>
       <Form onSubmit={handleOnSubmit}>
@@ -38,7 +40,9 @@ export const SearchFilm = ({
           onChange={handleOnChange}
           onKeyUp={handleKeyUp}
         />
-        <Button type="submit">Buscar</Button>
+        <Button disabled={error.length > 0} type="submit">
+          Buscar
+        </Button>
       </Form>
     </>
   );

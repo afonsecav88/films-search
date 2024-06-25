@@ -16,7 +16,7 @@ function HomeSearchFilm() {
   const [doingSearch, setDoingSearch] = useState<boolean>(false);
   const [doSearch, setDoSearch] = useState<boolean>(false);
   const { error } = useSearchErrors(termSearch);
-  const { prevTermSearch } = useSameFilmSearch(termSearch);
+  useSameFilmSearch(termSearch);
 
   const isSearchOrFoundedFilms = () => {
     if (doSearch == false && doingSearch == false) {
@@ -45,7 +45,6 @@ function HomeSearchFilm() {
         setDoSearch={setDoSearch}
       />
       <ErrorSearch termSearch={termSearch} />
-
       <Main>{isSearchOrFoundedFilms()}</Main>
     </>
   );
