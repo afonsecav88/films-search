@@ -39,7 +39,7 @@ export const SearchFilm = ({
           onChange={handleOnChange}
           onKeyUp={handleKeyUp}
         />
-        <Button disabled={error.length > 0} type="submit">
+        <Button disabled={error !== ''} type="submit">
           Buscar
         </Button>
       </Form>

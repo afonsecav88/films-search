@@ -3,8 +3,6 @@ import { useState, useRef, useEffect } from 'react';
 export const useSearchErrors = (termSearch: string): { error: string } => {
   const [error, setError] = useState<string>('');
   const isFirstSearch = useRef<boolean>(true);
-  console.log('termSearch tipo', typeof termSearch.length);
-  console.log('termSearch length', termSearch.length);
 
   useEffect(() => {
     if (termSearch.length >= 1 && termSearch.length < 3) {
