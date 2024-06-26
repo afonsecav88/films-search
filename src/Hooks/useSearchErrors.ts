@@ -3,8 +3,14 @@ import { useState, useRef, useEffect } from 'react';
 export const useSearchErrors = (termSearch: string): { error: string } => {
   const [error, setError] = useState<string>('');
   const isFirstSearch = useRef<boolean>(true);
+  console.log('termSearch tipo', typeof termSearch.length);
+  console.log('termSearch length', termSearch.length);
 
   useEffect(() => {
+    if (termSearch.length >= 1 && termSearch.length < 3) {
+      setError('La búsqueda debe tener al menos 3 caracteres');
+      return;
+    }
     if (isFirstSearch.current) {
       isFirstSearch.current = termSearch == '';
       return;
@@ -13,14 +19,8 @@ export const useSearchErrors = (termSearch: string): { error: string } => {
       setError('Debes introducir el nombre de la pélicula !');
       return;
     }
-
     if (termSearch.match(/^\d+$/)) {
       setError('No se puede buscar una película con un número');
-      return;
-    }
-
-    if (termSearch.length < 3) {
-      setError('La búsqueda debe tener al menos 3 caracteres');
       return;
     }
     setError('');

@@ -4,7 +4,7 @@ export const useSameFilmSearch = (termSearch: string) => {
   const prevSearchValue = useRef('');
   useEffect(() => {
     prevSearchValue.current = termSearch;
-  }, [termSearch]);
+  }, [termSearch, prevSearchValue]);
 
   return prevSearchValue.current;
 };

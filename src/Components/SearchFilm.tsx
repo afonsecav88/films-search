@@ -29,10 +29,9 @@ export const SearchFilm = ({
   );
   const { error } = useSearchErrors(termSearch);
 
-  console.log('error', error.length == 0);
   return (
     <>
-      <Form onSubmit={handleOnSubmit}>
+      <Form onSubmit={handleOnSubmit} noValidate autoComplete="false">
         <Input
           placeholder="Batman , Spiderman ..."
           value={termSearch}

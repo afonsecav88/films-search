@@ -12,11 +12,11 @@ import { ErrorSearch } from './Components/ErrorSearch';
 
 function HomeSearchFilm() {
   const [termSearch, setTermSearch] = useState<string>('');
+  useSameFilmSearch(termSearch);
   const [films, setFilms] = useState<Search[]>([]);
   const [doingSearch, setDoingSearch] = useState<boolean>(false);
   const [doSearch, setDoSearch] = useState<boolean>(false);
   const { error } = useSearchErrors(termSearch);
-  useSameFilmSearch(termSearch);
 
   const isSearchOrFoundedFilms = () => {
     if (doSearch == false && doingSearch == false) {

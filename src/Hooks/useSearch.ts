@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from 'react';
 import { FormEvent, KeyboardEvent, Dispatch, ChangeEvent } from 'react';
 import { Search } from '../Models/Films.Interface';
 import { SearchService } from '../Services/SearchService';
@@ -18,7 +17,7 @@ export const useSearch = (
   };
 
   const findFilmByTerm = () => {
-    if (error.length != 0) return;
+    if (error.length > 0) return;
     const listFilms = SearchService(termSearch);
     listFilms
       .then((films) => setFilms(films))
