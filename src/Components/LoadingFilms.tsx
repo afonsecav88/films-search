@@ -1,3 +1,19 @@
+import { LoadingFilmsItem } from './LoadingFilmsItem';
+import { ContainerSkeleton } from './StyledComponent';
+
 export const LoadingFilms = () => {
-  return <div>Se estan cargando sus peliculas</div>;
+  return (
+    <ContainerSkeleton>
+      <LoadingFilmsItem />
+      <LoadingFilmsItem />
+      <LoadingFilmsItem />
+      <LoadingFilmsItem />
+      <LoadingFilmsItem />
+      <LoadingFilmsItem />
+      <LoadingFilmsItem />
+      <LoadingFilmsItem />
+      <LoadingFilmsItem />
+      <LoadingFilmsItem />
+    </ContainerSkeleton>
+  );
 };

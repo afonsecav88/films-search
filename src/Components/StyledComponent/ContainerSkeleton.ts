@@ -1,6 +1,6 @@
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
-export const UlFilms = styled.ul`
+export const ContainerSkeleton = styled.div`
   display: flex;
   justify-content: center;
   gap: 1.5rem;

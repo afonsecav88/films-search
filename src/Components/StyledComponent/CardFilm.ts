@@ -7,4 +7,7 @@ export const CardFilm = styled.div`
   border-radius: 0.5rem;
   width: 14rem;
   padding-bottom: 1rem;
+  @media (max-width: 600px) {
+    max-width: 120%;
+  }
 `;

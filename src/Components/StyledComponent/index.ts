@@ -1,6 +1,8 @@
 export { Button } from './Button';
 export { CardFilm } from './CardFilm';
 export { Container } from './Container';
+export { ContainerSkeleton } from './ContainerSkeleton';
+export { ErrorContainer } from './ErrorContainer';
 export { FooterCard } from './FooterCard';
 export { FooterCardItem } from './FooterCardItem';
 export { FooterCardItemTitle } from './FooterCardItemTitle';
@@ -11,4 +13,3 @@ export { Input } from './Input';
 export { LiFilms } from './LiFilms';
 export { Main } from './Main';
 export { UlFilms } from './UlFilms';
-export { ErrorContainer } from './ErrorContainer';

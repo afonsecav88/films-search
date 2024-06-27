@@ -8,6 +8,7 @@ import { NotFilmsFounded } from './Components/NotFilmsFounded';
 import { LoadingFilms } from './Components/LoadingFilms';
 import { useSearchErrors } from './Hooks/useSearchErrors';
 import { ErrorSearch } from './Components/ErrorSearch';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function HomeSearchFilm() {
   const [termSearch, setTermSearch] = useState<string>('');
