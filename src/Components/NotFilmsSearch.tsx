@@ -1,3 +1,10 @@
+import { DivNotFilmsSearch, ImgNotFilmsSearch } from './StyledComponent';
+
 export const NotFilmsSearch = () => {
-  return <div>Aca se mostraran tus peliculas !!</div>;
+  return (
+    <DivNotFilmsSearch>
+      <h4>Acá se mostraran tus películas !!</h4>
+      <ImgNotFilmsSearch src="home.svg" alt="not films search" />
+    </DivNotFilmsSearch>
+  );
 };
