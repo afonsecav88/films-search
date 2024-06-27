@@ -6,4 +6,5 @@ export const HeaderFilm = styled.p`
   padding: 0.5rem;
   font-size: smaller;
   font-weight: bold;
+  color: #4B515D;
 `;

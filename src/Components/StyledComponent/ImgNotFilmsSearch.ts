@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const ImgNotFilmsSearch = styled.img`
-  width: 20rem;
+  width: 25rem;
+  height: 80%;
   @media (max-width: 600px) {
     width: 80%;
     height: 40%;

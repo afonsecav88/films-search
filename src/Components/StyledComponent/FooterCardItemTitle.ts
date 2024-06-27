@@ -5,4 +5,5 @@ export const FooterCardItemTitle = styled.p`
   font-size: smaller;
   padding-right: 0.3rem;
   font-weight: bold;
+  color: #4b515d;
 `;
