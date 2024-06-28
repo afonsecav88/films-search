@@ -10,6 +10,7 @@ import { useSearchErrors } from './Hooks/useSearchErrors';
 import { ErrorSearch } from './Components/ErrorSearch';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { FilterFilms } from './Components/FilterFilms';
+import { useCheckFilter } from './Hooks/useCheckFilter';
 
 function HomeSearchFilm() {
   const [termSearch, setTermSearch] = useState<string>('');
@@ -17,6 +18,7 @@ function HomeSearchFilm() {
   const [doingSearch, setDoingSearch] = useState<boolean>(false);
   const [doSearch, setDoSearch] = useState<boolean>(false);
   const { error } = useSearchErrors(termSearch);
+  const { checkFilter } = useCheckFilter(films);
 
   const isSearchOrFoundedFilms = () => {
     if (doSearch == false && doingSearch == false) {
@@ -26,10 +28,10 @@ function HomeSearchFilm() {
     if (doingSearch == true && termSearch.length >= 3) {
       return <LoadingFilms />;
     }
-    if (films.length !== 0) {
-      return <CardFilmList films={films} />;
+    if (checkFilter().length !== 0) {
+      return <CardFilmList films={checkFilter()} />;
     }
-    if (doSearch && films.length == 0) {
+    if (doSearch && checkFilter().length == 0) {
       return <NotFilmsFounded termSearch={termSearch} />;
     }
   };
@@ -39,7 +41,7 @@ function HomeSearchFilm() {
       <SearchFilm
         termSearch={termSearch}
         setTermSearch={setTermSearch}
-        films={films}
+        films={checkFilter()}
         setFilms={setFilms}
         setDoingSearch={setDoingSearch}
         setDoSearch={setDoSearch}

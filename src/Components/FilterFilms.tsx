@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   DivFilter,
   FilterName,
@@ -6,20 +5,15 @@ import {
   FilterYear,
 } from './StyledComponent';
 import { Search } from '../Models/Films.Interface';
+import { useCheckFilter } from '../Hooks/useCheckFilter';
 
-export const FilterFilms = ({ films }: Search[]) => {
-  const [checkName, setCheckName] = useState(false);
-  const [checkYear, setCheckYear] = useState(false);
-  console.log('checkName', checkName);
-  console.log('checkYear', checkYear);
+interface FilterFilmsProps {
+  films: Search[];
+}
 
-  const handleCheckName = () => {
-    setCheckName(!checkName);
-  };
-  const handleCheckYear = () => {
-    setCheckYear(!checkYear);
-  };
-
+export const FilterFilms = ({ films }: FilterFilmsProps) => {
+  const { handleCheckName, handleCheckYear, checkName, checkYear } =
+    useCheckFilter(films);
   return (
     <DivFilter>
       <FilterSearch>
