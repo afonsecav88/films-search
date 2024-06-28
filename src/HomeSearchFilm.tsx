@@ -45,7 +45,7 @@ function HomeSearchFilm() {
         setDoSearch={setDoSearch}
       />
       <ErrorSearch termSearch={termSearch} />
-      <FilterFilms />
+      {films.length !== 0 && <FilterFilms films={films} />}
       <Main>{isSearchOrFoundedFilms()}</Main>
     </>
   );
