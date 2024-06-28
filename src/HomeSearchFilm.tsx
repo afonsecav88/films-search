@@ -9,6 +9,7 @@ import { LoadingFilms } from './Components/LoadingFilms';
 import { useSearchErrors } from './Hooks/useSearchErrors';
 import { ErrorSearch } from './Components/ErrorSearch';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { FilterFilms } from './Components/FilterFilms';
 
 function HomeSearchFilm() {
   const [termSearch, setTermSearch] = useState<string>('');
@@ -44,6 +45,7 @@ function HomeSearchFilm() {
         setDoSearch={setDoSearch}
       />
       <ErrorSearch termSearch={termSearch} />
+      <FilterFilms />
       <Main>{isSearchOrFoundedFilms()}</Main>
     </>
   );
