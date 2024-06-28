@@ -29,7 +29,7 @@ export const useSearch = (
 
   const debounceFindFilmByTerm = debounce(() => {
     findFilmByTerm();
-  }, 3000);
+  }, 2000);
 
   const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== 'Enter') return;
