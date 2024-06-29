@@ -7,7 +7,6 @@ interface CardFilmListProps {
 }
 
 export const CardFilmList = ({ films }: CardFilmListProps) => {
-  console.log('me renderize cards films');
   return (
     <UlFilms>
       {films.map((film: Search) => (

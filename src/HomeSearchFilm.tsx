@@ -22,8 +22,6 @@ function HomeSearchFilm() {
   const { error } = useSearchErrors(termSearch);
   const { filteredFilms } = useCheckFilter(films, checkName, checkYear);
 
-  console.log('me renderize HOME');
-
   const isSearchOrFoundedFilms = () => {
     if (doSearch == false && doingSearch == false) {
       return <NotFilmsSearch />;
@@ -38,6 +36,7 @@ function HomeSearchFilm() {
     if (doSearch && films.length == 0) {
       return <NotFilmsFounded termSearch={termSearch} />;
     }
+    return <NotFilmsSearch />;
   };
 
   useEffect(() => {

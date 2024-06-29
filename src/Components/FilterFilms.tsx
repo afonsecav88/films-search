@@ -20,23 +20,24 @@ export const FilterFilms = ({
 }: FilterFilmsProps) => {
   const handleCheckName = () => {
     setCheckName(!checkName);
+    setCheckYear(false);
   };
   const handleCheckYear = () => {
     setCheckYear(!checkYear);
+    setCheckName(false);
   };
-
-  console.log('me renderize');
   return (
     <DivFilter>
       <FilterSearch>
-        Ordenar por: Nombre
+        Ordenar por:{' '}
+        <p style={{ color: checkName ? '#1d3595' : 'black' }}>Nombre </p>
         <FilterName
           type="checkbox"
           name="checkName"
           onChange={handleCheckName}
           checked={checkName}
         />
-        Año
+        <p style={{ color: checkYear ? '#1d3595' : 'black' }}>Año </p>
         <FilterYear
           type="checkbox"
           name="checkYear"
