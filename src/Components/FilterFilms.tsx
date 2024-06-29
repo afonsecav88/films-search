@@ -4,16 +4,28 @@ import {
   FilterSearch,
   FilterYear,
 } from './StyledComponent';
-import { Search } from '../Models/Films.Interface';
-import { useCheckFilter } from '../Hooks/useCheckFilter';
 
 interface FilterFilmsProps {
-  films: Search[];
+  checkName: boolean;
+  checkYear: boolean;
+  setCheckName: React.Dispatch<boolean>;
+  setCheckYear: React.Dispatch<boolean>;
 }
 
-export const FilterFilms = ({ films }: FilterFilmsProps) => {
-  const { handleCheckName, handleCheckYear, checkName, checkYear } =
-    useCheckFilter(films);
+export const FilterFilms = ({
+  checkName,
+  checkYear,
+  setCheckName,
+  setCheckYear,
+}: FilterFilmsProps) => {
+  const handleCheckName = () => {
+    setCheckName(!checkName);
+  };
+  const handleCheckYear = () => {
+    setCheckYear(!checkYear);
+  };
+
+  console.log('me renderize');
   return (
     <DivFilter>
       <FilterSearch>
