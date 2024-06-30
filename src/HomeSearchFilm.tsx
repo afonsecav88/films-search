@@ -1,26 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { CardFilmList } from './Components/CardFilmsList';
 import { SearchFilm } from './Components/SearchFilm';
 import { Main } from './Components/StyledComponent';
 import { NotFilmsSearch } from './Components/NotFilmsSearch';
-import { Search } from './Models/Films.Interface';
 import { NotFilmsFounded } from './Components/NotFilmsFounded';
 import { LoadingFilms } from './Components/LoadingFilms';
 import { useSearchErrors } from './Hooks/useSearchErrors';
 import { ErrorSearch } from './Components/ErrorSearch';
 import { FilterFilms } from './Components/FilterFilms';
 import { useCheckFilter } from './Hooks/useCheckFilter';
+import { FilmsContext } from './Context/FilmsContext';
 
-function HomeSearchFilm() {
-  const [termSearch, setTermSearch] = useState<string>('');
-  const [films, setFilms] = useState<Search[]>([]);
-  const [doingSearch, setDoingSearch] = useState<boolean>(false);
-  const [doSearch, setDoSearch] = useState<boolean>(false);
-  const [checkName, setCheckName] = useState(false);
-  const [checkYear, setCheckYear] = useState(false);
-  const { error } = useSearchErrors(termSearch);
+export const HomeSearchFilm = () => {
+  const {
+    termSearch,
+    films,
+    setFilms,
+    doingSearch,
+    doSearch,
+    checkName,
+    checkYear,
+  } = useContext(FilmsContext);
+
   const { filteredFilms } = useCheckFilter(films, checkName, checkYear);
+  const { error } = useSearchErrors(termSearch);
 
   const isSearchOrFoundedFilms = () => {
     if (doSearch == false && doingSearch == false) {
@@ -48,26 +52,10 @@ function HomeSearchFilm() {
 
   return (
     <>
-      <SearchFilm
-        termSearch={termSearch}
-        setTermSearch={setTermSearch}
-        films={films}
-        setFilms={setFilms}
-        setDoingSearch={setDoingSearch}
-        setDoSearch={setDoSearch}
-      />
-      <ErrorSearch termSearch={termSearch} />
-      {films.length !== 0 && (
-        <FilterFilms
-          checkName={checkName}
-          checkYear={checkYear}
-          setCheckName={setCheckName}
-          setCheckYear={setCheckYear}
-        />
-      )}
+      <SearchFilm />
+      <ErrorSearch />
+      {films.length !== 0 && <FilterFilms />}
       <Main>{isSearchOrFoundedFilms()}</Main>
     </>
   );
-}
-
-export default HomeSearchFilm;
+};

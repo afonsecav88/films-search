@@ -1,3 +1,4 @@
+import { useFilmsContext } from '../Hooks/useFilmsContext';
 import {
   DivFilter,
   FilterName,
@@ -5,19 +6,10 @@ import {
   FilterYear,
 } from './StyledComponent';
 
-interface FilterFilmsProps {
-  checkName: boolean;
-  checkYear: boolean;
-  setCheckName: React.Dispatch<boolean>;
-  setCheckYear: React.Dispatch<boolean>;
-}
+export const FilterFilms = () => {
+  const { checkName, checkYear, setCheckName, setCheckYear } =
+    useFilmsContext();
 
-export const FilterFilms = ({
-  checkName,
-  checkYear,
-  setCheckName,
-  setCheckYear,
-}: FilterFilmsProps) => {
   const handleCheckName = () => {
     setCheckName(!checkName);
     setCheckYear(false);

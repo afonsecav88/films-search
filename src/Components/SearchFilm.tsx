@@ -1,25 +1,11 @@
 import { Input, Button, Form } from './StyledComponent';
 import { useSearch } from '../Hooks/useSearch';
-import { Dispatch } from 'react';
-import { Search } from '../Models/Films.Interface';
 import { useSearchErrors } from '../Hooks/useSearchErrors';
+import { useFilmsContext } from '../Hooks/useFilmsContext';
 
-interface SearchFilmProps {
-  termSearch: string;
-  setTermSearch: Dispatch<React.SetStateAction<string>>;
-  films: Search[];
-  setFilms: Dispatch<React.SetStateAction<Search[]>>;
-  setDoingSearch: Dispatch<React.SetStateAction<boolean>>;
-  setDoSearch: Dispatch<React.SetStateAction<boolean>>;
-}
-
-export const SearchFilm = ({
-  termSearch,
-  setTermSearch,
-  setFilms,
-  setDoingSearch,
-  setDoSearch,
-}: SearchFilmProps) => {
+export const SearchFilm = () => {
+  const { termSearch, setTermSearch, setFilms, setDoingSearch, setDoSearch } =
+    useFilmsContext();
   const { handleOnSubmit, handleOnChange, handleKeyUp } = useSearch(
     termSearch,
     setTermSearch,
