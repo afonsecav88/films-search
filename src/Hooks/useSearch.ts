@@ -1,16 +1,12 @@
-import { FormEvent, KeyboardEvent, Dispatch, ChangeEvent } from 'react';
-import { Search } from '../Models/Films.Interface';
+import { FormEvent, KeyboardEvent, ChangeEvent } from 'react';
 import { SearchService } from '../Services/SearchService';
 import debounce from 'just-debounce-it';
 import { useSearchErrors } from './useSearchErrors';
+import { useFilmsContext } from './useFilmsContext';
 
-export const useSearch = (
-  termSearch: string,
-  setTermSearch: Dispatch<React.SetStateAction<string>>,
-  setFilms: Dispatch<React.SetStateAction<Search[]>>,
-  setDoingSearch: Dispatch<React.SetStateAction<boolean>>,
-  setDoSearch: Dispatch<React.SetStateAction<boolean>>
-) => {
+export const useSearch = (termSearch: string) => {
+  const { setTermSearch, setFilms, setDoingSearch, setDoSearch } =
+    useFilmsContext();
   const { error } = useSearchErrors(termSearch);
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTermSearch(e.target.value);

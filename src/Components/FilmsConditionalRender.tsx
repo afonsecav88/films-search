@@ -5,9 +5,9 @@ import { NotFilmsFounded } from './NotFilmsFounded';
 import { NotFilmsSearch } from './NotFilmsSearch';
 
 export const FilmsConditionalRender = (): JSX.Element => {
-  const { films, doingSearch, doSearch } = useFilmsContext();
+  const { termSearch, films, doingSearch, doSearch } = useFilmsContext();
   if (doingSearch == true) return <LoadingFilms />;
-  if (doSearch == false) return <NotFilmsSearch />;
+  if (doSearch == false || termSearch.length < 3) return <NotFilmsSearch />;
   if (films.length !== 0) return <CardFilmList />;
   if (doSearch && films.length == 0) return <NotFilmsFounded />;
   return <NotFilmsSearch />;
