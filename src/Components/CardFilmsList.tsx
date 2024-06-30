@@ -1,12 +1,10 @@
+import { useFilmsContext } from '../Hooks/useFilmsContext';
 import { Search } from '../Models/Films.Interface';
 import { CardFilmsItem } from './CardFilmsItem';
 import { UlFilms } from './StyledComponent';
 
-interface CardFilmListProps {
-  films: Search[];
-}
-
-export const CardFilmList = ({ films }: CardFilmListProps) => {
+export const CardFilmList = () => {
+  const { films } = useFilmsContext();
   return (
     <UlFilms>
       {films.map((film: Search) => (

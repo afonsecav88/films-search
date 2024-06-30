@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
-export const useSearchErrors = (termSearch: string): { error: string } => {
+export const useSearchErrors = (termSearch: string) => {
   const [error, setError] = useState<string>('');
   const isFirstSearch = useRef<boolean>(true);
 
