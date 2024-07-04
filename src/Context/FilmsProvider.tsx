@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Search } from '../Models/Films.Interface.ts';
 import { FilmsContext } from './FilmsContext.ts';
 
@@ -13,24 +13,24 @@ export const FilmsProvider = ({ children }: FilmsProviderProps) => {
   const [doSearch, setDoSearch] = useState<boolean>(false);
   const [checkName, setCheckName] = useState(false);
   const [checkYear, setCheckYear] = useState(false);
+  const objFilms = useMemo(
+    () => ({
+      termSearch,
+      setTermSearch,
+      films,
+      setFilms,
+      doingSearch,
+      setDoingSearch,
+      doSearch,
+      setDoSearch,
+      checkName,
+      setCheckName,
+      checkYear,
+      setCheckYear,
+    }),
+    [checkName, checkYear, doSearch, doingSearch, films, termSearch]
+  );
   return (
-    <FilmsContext.Provider
-      value={{
-        termSearch,
-        setTermSearch,
-        films,
-        setFilms,
-        doingSearch,
-        setDoingSearch,
-        doSearch,
-        setDoSearch,
-        checkName,
-        setCheckName,
-        checkYear,
-        setCheckYear,
-      }}
-    >
-      {children}
-    </FilmsContext.Provider>
+    <FilmsContext.Provider value={objFilms}>{children}</FilmsContext.Provider>
   );
 };

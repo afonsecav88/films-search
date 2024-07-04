@@ -9,19 +9,17 @@ export const SearchFilm = () => {
   const { error } = useSearchErrors(termSearch);
 
   return (
-    <>
-      <Form onSubmit={handleOnSubmit} noValidate autoComplete="false">
-        <Input
-          placeholder="Batman , Spiderman ..."
-          value={termSearch}
-          name="searchTerm"
-          onChange={handleOnChange}
-          onKeyUp={handleKeyUp}
-        />
-        <Button disabled={error !== ''} type="submit">
-          Buscar
-        </Button>
-      </Form>
-    </>
+    <Form onSubmit={handleOnSubmit} noValidate autoComplete="false">
+      <Input
+        placeholder="Batman , Spiderman ..."
+        value={termSearch}
+        name="searchTerm"
+        onChange={handleOnChange}
+        onKeyUp={handleKeyUp}
+      />
+      <Button disabled={error !== ''} type="submit">
+        Buscar
+      </Button>
+    </Form>
   );
 };

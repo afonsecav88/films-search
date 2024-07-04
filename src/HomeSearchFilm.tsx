@@ -16,7 +16,6 @@ export const HomeSearchFilm = () => {
   useEffect(() => {
     if (checkName || checkYear) {
       setFilms(filteredFilms());
-      return;
     }
   }, [checkName, checkYear]);
 

@@ -25,7 +25,7 @@ export const useSearch = (termSearch: string) => {
 
   const debounceFindFilmByTerm = debounce(() => {
     findFilmByTerm();
-  }, 2000);
+  }, 1000);
 
   const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== 'Enter') return;
