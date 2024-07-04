@@ -5,11 +5,21 @@ import { useSearchErrors } from './useSearchErrors';
 import { useFilmsContext } from './useFilmsContext';
 
 export const useSearch = (termSearch: string) => {
-  const { setTermSearch, setFilms, setDoingSearch, setDoSearch } =
-    useFilmsContext();
+  const {
+    setTermSearch,
+    setFilms,
+    setDoingSearch,
+    setDoSearch,
+    setCheckName,
+    setCheckYear,
+  } = useFilmsContext();
   const { error } = useSearchErrors(termSearch);
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTermSearch(e.target.value);
+  };
+
+  const resetSearchFilters = () => {
+    setCheckName(false), setCheckYear(false);
   };
 
   const findFilmByTerm = () => {
@@ -30,6 +40,7 @@ export const useSearch = (termSearch: string) => {
   const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== 'Enter') return;
     if (error.length != 0) return;
+    resetSearchFilters();
     setDoingSearch(true);
     debounceFindFilmByTerm();
   };
@@ -37,6 +48,7 @@ export const useSearch = (termSearch: string) => {
   const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (error.length != 0) return;
+    resetSearchFilters();
     setDoingSearch(true);
     debounceFindFilmByTerm();
   };
