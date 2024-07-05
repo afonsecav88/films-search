@@ -1,4 +1,4 @@
-# Aplicación que consume API y realiza la búsqueda de películas
+## Aplicación que consume API y realiza la búsqueda de películas
 
 - Usa la API : https://www.omdbapi.com/
 - Se usa para la busqueda de las películas la URL:
