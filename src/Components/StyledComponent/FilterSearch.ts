@@ -1,12 +1,12 @@
-import { styled } from 'styled-components';
+import { styled } from 'styled-components'
 
 export const FilterSearch = styled.span`
-  display: inline-flex;
+  display: flex;
   justify-content: center;
+  align-items: center;
   gap: 0.5rem;
   width: 18rem;
   border-radius: 0.2rem;
   background-color: #aab0bb;
-  padding: 0.5rem;
   color: aliceblue;
-`;
+`

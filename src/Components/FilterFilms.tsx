@@ -1,23 +1,22 @@
-import { useFilmsContext } from '../Hooks/useFilmsContext';
+import { useFilmsContext } from '../Hooks/useFilmsContext'
 import {
   DivFilter,
   FilterName,
   FilterSearch,
   FilterYear,
-} from './StyledComponent';
+} from './StyledComponent'
 
 export const FilterFilms = () => {
-  const { checkName, checkYear, setCheckName, setCheckYear } =
-    useFilmsContext();
+  const { checkName, checkYear, setCheckName, setCheckYear } = useFilmsContext()
 
   const handleCheckName = () => {
-    setCheckName(!checkName);
-    setCheckYear(false);
-  };
+    setCheckName(!checkName)
+    setCheckYear(false)
+  }
   const handleCheckYear = () => {
-    setCheckYear(!checkYear);
-    setCheckName(false);
-  };
+    setCheckYear(!checkYear)
+    setCheckName(false)
+  }
   return (
     <DivFilter>
       <FilterSearch>
@@ -38,5 +37,5 @@ export const FilterFilms = () => {
         />
       </FilterSearch>
     </DivFilter>
-  );
-};
+  )
+}
