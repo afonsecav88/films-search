@@ -1,7 +1,12 @@
-import { useFilmsContext } from '../Hooks/useFilmsContext';
+import { useFilmsContext } from '../Hooks/useFilmsContext'
 
 export const NotFilmsFounded = () => {
-  const { termSearch } = useFilmsContext();
+  const { termSearch } = useFilmsContext()
 
-  return <>{`No se encontraron peliculas con el término : ${termSearch} `}</>;
-};
+  return (
+    <p>
+      Realice otra búsqueda, no se encontraron películas con el término : $
+      {termSearch}
+    </p>
+  )
+}
