@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+# Aplicación que consume API y realiza la búsqueda de películas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Usa la API : https://www.omdbapi.com/
+- Se usa para la busqueda de las películas la URL:
+  [Buscar imagen por título]: https://www.omdbapi.com/?apikey=${apikey}&s=${searchTerm}
 
-Currently, two official plugins are available:
+## Funcionalidades de la app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Busca películas por título.
 
-## Expanding the ESLint configuration
+✅ Lista las películas, muestra el título, año y poster.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+✅ Validación simple de formulario.
 
-- Configure the top-level `parserOptions` property like this:
+✅ Muestra las películas búscadas en un grid responsive.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+✅ Hace fetching de datos desde una API
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Levantar la aplicación en desarrollo
+
+1. Para instalar dependencias de desarrollo `npm install`
+2. Para levantar el server de desarrollo `npm run dev`
+3. Para hacer el build de la app `npm run build`
