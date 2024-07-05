@@ -1,10 +1,12 @@
-## Aplicación que consume API y realiza la búsqueda de películas
+## Aplicación que consume API y realiza la búsqueda de películas.
+
+### Creada con React, TypeScript y Styled-Components.
 
 - Usa la API : https://www.omdbapi.com/
 - Se usa para la busqueda de las películas la URL:
   [Buscar imagen por título]: https://www.omdbapi.com/?apikey=${apikey}&s=${searchTerm}
 
-## Funcionalidades de la app
+## Funcionalidades de la app.
 
 ✅ Busca películas por título.
 
