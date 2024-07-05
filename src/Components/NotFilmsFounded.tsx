@@ -5,7 +5,7 @@ export const NotFilmsFounded = () => {
 
   return (
     <p>
-      Realice otra búsqueda, no se encontraron películas con el término : $
+      Realice otra búsqueda, no se encontraron películas con el término:
       {termSearch}
     </p>
   )
